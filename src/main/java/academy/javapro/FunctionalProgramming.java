@@ -13,8 +13,8 @@ public class FunctionalProgramming {
 
         // TASK 1: Filter even numbers and print them
         List<Integer> evenNumbers = numbers.stream()
-            .filter(n -> n % 2 == 0)     // This keeps only even numbers
-            .collect(Collectors.toList());  // This collects results into a new list
+                .filter(n -> n % 2 == 0)     // This keeps only even numbers
+                .collect(Collectors.toList());  // This collects results into a new list
 
         System.out.println("Even numbers: " + evenNumbers);
 
@@ -22,16 +22,18 @@ public class FunctionalProgramming {
         // TODO: Create a stream that doubles each number in the original list
         // Hint: Use .map(n -> ...)
         List<Integer> doubledNumbers = numbers.stream()
-            // Write your code here
-            .collect(Collectors.toList());
+                .map(n->n*2)// Write your code here
+                .collect(Collectors.toList());
 
         // TASK 3: Sum all numbers in doubledNumbers
         // TODO: Create a stream that sums all numbers
-        // Hint: Use .mapToInt(n -> n).sum()
-        int sum = 0; // Replace with your stream code
+        int sum = doubledNumbers.stream()
+            .mapToInt(n->n)// Hint: Use .mapToInt(n -> n).sum()
+            .sum(); // Replace with your stream code
 
         // Print results
         System.out.println("Doubled numbers: " + doubledNumbers);
         System.out.println("Sum of doubled numbers: " + sum);
     }
 }
+
