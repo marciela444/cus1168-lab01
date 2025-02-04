@@ -137,7 +137,7 @@ public class StudentStreamLab {
             .filter(s -> s.getGpa() > 3.0)
             .collect(Collectors.toList());
 
-        System.out.println("\nHigh gpa student names: ");
+        System.out.println("Students with GPA> 3.0: ");
         highGpaStudents.forEach(System.out::println);
         
         // TODO - Mapping: Extract names of students with GPA > 3.0
@@ -145,8 +145,8 @@ public class StudentStreamLab {
             .map(Student::getName)
             .collect(Collectors.toList());
 
-        System.out.println("Students with gpa > 3.0: ");
-        highGpaStudents.forEach(System.out::println);
+        System.out.println("\nHigh GPA student names: ");
+        highGpaNames.forEach(System.out::println);
 
         // TODO - Reducing: Calculate the average GPA of all students
         double averageGpa = students.stream()
@@ -158,8 +158,11 @@ public class StudentStreamLab {
 
         // TODO - Collecting: Collect all "Junior" students into a list
         List<Student> juniorStudents = students.stream()
-        .filter(s -> s.getYear().equals("Junior"))
-        .collect(Collectors.toList());
+            .filter(s -> s.getYear().equals("Junior"))
+            .collect(Collectors.toList());
+        System.out.println("\nJuniors: ");
+        juniorStudents.forEach(System.out::println);
+
     }
 }
 ```
